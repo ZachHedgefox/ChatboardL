@@ -1,1 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chatboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>💬 Chatboard</h1>
+      <span id="status" class="status">connecting…</span>
+    </header>
 
+    <div id="messages" class="messages" aria-live="polite"></div>
+
+    <form id="form" class="composer" autocomplete="off">
+      <input id="username" type="text" placeholder="Username" maxlength="24" required />
+      <input id="text" type="text" placeholder="Type a message…" maxlength="500" required />
+      <button type="submit">Send</button>
+    </form>
+    <p id="error" class="error" role="alert"></p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

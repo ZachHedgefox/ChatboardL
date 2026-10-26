@@ -1,0 +1,83 @@
+:root {
+  --bg: #0f1115;
+  --panel: #181b22;
+  --border: #2a2f3a;
+  --text: #e8eaf0;
+  --muted: #8b93a7;
+  --accent: #5b8cff;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.app {
+  width: 100%;
+  max-width: 720px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 12px;
+}
+header { display: flex; justify-content: space-between; align-items: center; }
+h1 { margin: 0; font-size: 1.4rem; }
+.status { font-size: 0.8rem; color: var(--muted); }
+.status.online { color: #4ade80; }
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.msg { max-width: 85%; }
+.msg .meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 2px; }
+.msg .meta strong { color: var(--accent); }
+.msg .bubble {
+  background: #222734;
+  padding: 8px 12px;
+  border-radius: 10px;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+.msg.mine { align-self: flex-end; text-align: right; }
+.msg.mine .bubble { background: var(--accent); color: #fff; }
+.empty { color: var(--muted); text-align: center; margin: auto; }
+.composer { display: flex; gap: 8px; }
+.composer input {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  min-width: 0;
+}
+.composer input:focus { outline: 2px solid var(--accent); border-color: transparent; }
+#username { width: 140px; flex: none; }
+#text { flex: 1; }
+.composer button {
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 18px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.composer button:disabled { opacity: 0.6; cursor: default; }
+.error { color: #f87171; min-height: 1.2em; margin: 0; font-size: 0.85rem; }
+@media (max-width: 480px) {
+  .composer { flex-wrap: wrap; }
+  #username { width: 100%; }
+}
